@@ -38,9 +38,12 @@ public class MenuItem {
     @ManyToOne
     Category category;
 
+    @OneToMany
+    List<Quantity> quantities;
+
     private MenuItem(){}
 
-    public MenuItem(String name, List<Ingredient> ingredients, String description, boolean sizeAvailable, Size size, int price,Category category, List<Order> orders) {
+    public MenuItem(String name, List<Ingredient> ingredients, String description, boolean sizeAvailable, Size size, int price,Category category, List<Order> orders, List<Quantity> quantities) {
         this.name = name;
         this.ingredients = new ArrayList<>(ingredients);
         this.description = description;
@@ -49,5 +52,6 @@ public class MenuItem {
         this.price = price;
         this.category = category;
         this.orders = new ArrayList<>(orders);
+        this.quantities = new ArrayList<>(quantities);
     }
 }

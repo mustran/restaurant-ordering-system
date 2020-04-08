@@ -17,7 +17,7 @@ public class Customer {
     String name;
     String surname;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "orderedBy")
     List<Order> orders;
 
     @OneToOne(fetch = FetchType.EAGER)

@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Data
-@Table(name = "orderbla")
+@Table(name = "`order`")
 @Entity
 public class Order {
     @Id
@@ -17,11 +19,12 @@ public class Order {
 
     @ManyToMany
     @JoinTable(
-            name = "order_item",
+            name = "order_quantity",
             joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_name")
+            inverseJoinColumns = @JoinColumn(name = "quantity_id")
     )
-    Map<MenuItem, Integer> items;
+    List<Quantity> items;
+
     Long totalPrice;
 
     @ManyToOne
@@ -30,9 +33,9 @@ public class Order {
 
     private Order(){}
 
-    public Order(Long id, Map<MenuItem, Integer> items, Long totalPrice, Customer orderedBy, boolean payingOnline) {
+    public Order(Long id, List<Quantity> items, Long totalPrice, Customer orderedBy, boolean payingOnline) {
         this.id = id;
-        this.items = new HashMap<>(items);
+        this.items = new ArrayList<>(items);
         this.totalPrice = totalPrice;
         this.orderedBy = orderedBy;
         this.payingOnline = payingOnline;

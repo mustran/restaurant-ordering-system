@@ -18,7 +18,7 @@ public class Address {
     int streetNumber;
     String city;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
     Customer customer;
 
     private Address(){}

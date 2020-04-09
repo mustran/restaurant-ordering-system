@@ -1,4 +1,4 @@
 package com.example.restaurantordering.repository;
 
-public class CategoryStore {
+public interface CategoryStore {
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Ingredient {
     @Id
-    Long name;
+    String name;
 
     @ManyToMany(mappedBy = "ingredients")
     List<MenuItem> items;
@@ -24,7 +24,7 @@ public class Ingredient {
 
     private Ingredient() {}
 
-    public Ingredient(Long name, boolean spicy, int inStock, boolean glutenFree, List<MenuItem> items){
+    public Ingredient(String name, boolean spicy, int inStock, boolean glutenFree, List<MenuItem> items){
         this.name = name;
         this.spicy = spicy;
         this.inStock = inStock;

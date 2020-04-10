@@ -30,7 +30,6 @@ public class RestaurantOrderingApplication {
 	}
 }
 
-
 @Configuration
 @EnableJpaAuditing
 class DataJpaConfig {
